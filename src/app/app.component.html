@@ -19,10 +19,12 @@
               <td class="whitespace-nowrap  px-6 py-4">{{item.nome_completo}}</td>
               <td class="whitespace-nowrap  px-6 py-4">{{item.valor_emprestimo}}</td>
               <td class="whitespace-nowrap  px-6 py-4">{{item.status}}</td>
-              <td class="whitespace-nowrape px-6 py-4">
-                <button mat-icon-button aria-label="Example" (click)="editarProposta()">
-                  <mat-icon>more_vert</mat-icon>
-                </button>
+              <td class="whitespace-nowrap px-6 py-4">
+                <div class="flex justify-end">
+                  <button mat-icon-button aria-label="Example" (click)="editarProposta(item.id)">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                </div>
               </td>
             </tr>
           </tbody>

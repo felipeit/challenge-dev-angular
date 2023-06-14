@@ -13,29 +13,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { DialogComponent } from './dialog/dialog/dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { CurrencyMaskInputMode, NgxCurrencyModule } from 'ngx-currency';
-//import { NgxMaskModule } from 'ngx-mask';
-
-export const customCurrencyMaskConfig = {
-  align: 'left',
-  allowNegative: true,
-  allowZero: true,
-  decimal: ',',
-  precision: 2,
-  prefix: 'R$ ',
-  suffix: '',
-  thousands: '.',
-  nullable: true,
-  min: 0,
-  max: 99999999.99,
-  inputMode: CurrencyMaskInputMode.FINANCIAL,
-};
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DialogComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -48,7 +28,11 @@ export const customCurrencyMaskConfig = {
     MatTooltipModule,
     MatInputModule,
     MatFormFieldModule,
-    NgxCurrencyModule.forRoot(customCurrencyMaskConfig),
+    ReactiveFormsModule,
+  ],
+  declarations: [
+    AppComponent,
+    DialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

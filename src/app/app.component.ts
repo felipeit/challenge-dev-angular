@@ -19,16 +19,23 @@ export class AppComponent implements OnInit {
     ){}
 
   ngOnInit(): void {
-    this.backendService.getAll().subscribe((data)=>{
-      console.log(data);
-      this.dataSource = data;
+    this.list();
+  }
 
+  editarProposta(id: number): void{
+    let dialogRef = this.dialog.open(DialogComponent, {
+      data: {id: id}
+    });
+
+    dialogRef.afterClosed().subscribe(()=>{
+      this.list();
     })
   }
 
-  editarProposta(): void{
-    this.dialog.open(DialogComponent);
+  list(): void{
+    this.backendService.getAll().subscribe((data)=>{
+      this.dataSource = data;
+    })
   }
-
 }
 

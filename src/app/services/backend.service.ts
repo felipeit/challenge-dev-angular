@@ -17,6 +17,14 @@ export class BackendService {
   }
 
   update(id: number, status: string): Observable<any>{
-    return this.http.put(`${this.url}${id}/`, {sattus: status})
+    return this.http.put(`${this.url}${id}/`, {status: status});
+  }
+
+  partialUpdate(id: number, data: any): Observable<any>{
+    return this.http.patch(`${this.url}${id}/`, data);
+  }
+
+  retrieve(id: number): Observable<any>{
+    return this.http.get(`${this.url}${id}/`);
   }
 }
